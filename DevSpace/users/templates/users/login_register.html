@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ {% if is_social %}
+        <h2><strong>The Account related to the mail doesn't exist. In order to continue, create a new account</strong></h2>
+    {% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{request.GET.next}}">
+    <input type="submit" value={{input_value}}>
+</form>
+
+<form method="post" action="{% url 'social:begin' 'google-oauth2' %}">
+    {% csrf_token %}
+    <button type="submit">Login with Google</button>
+</form>
+
+    <a href="{% url 'users:password_reset' %}"> Forgot the password? </a>
+{% endblock%}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+    <h1>{{ title }}</h1>
+
+    <form method="post" action="">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+
+    </form>
+
+    {% for s_auth in social_auths %}
+        <form method="post" action="{% url 'users:remove_oauth2_request' %}">
+            {% csrf_token %}
+            <input type="hidden" name="provider" value="{{ s_auth.provider }}">
+            <button>Disconnect: {{ s_auth.provider }} </button>
+
+        </form>
+     {%  endfor %}
+
+    <a href="{% url 'users:change_password' %}"> Change Password </a>
+{% endblock %}
+

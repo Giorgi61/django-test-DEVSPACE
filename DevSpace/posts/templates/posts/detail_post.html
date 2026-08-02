@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock title %}
+
+
+
+{% block content %}
+
+
+    <p> {{ object.title }}, {{ object.slug }}, {%  if object.text %} {{ object.text }} {% else %} No text {% endif %}
+        {% if object.image  %}, <img src="{{  object.image.url }}" alt="detail_post"/> {% endif %} </p>
+
+    {% if user.pk == object.author_id %}
+        <a href="{{ object.get_edit_url }}"> Edit post </a>
+    {% endif %}
+{% endblock %}

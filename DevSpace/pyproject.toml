@@ -1,0 +1,13 @@
+[project]
+name = "devspace"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=6.0.6",
+    "django-extensions>=4.1",
+    "django-turnstile>=0.1.3",
+    "ipython>=9.14.1",
+    "psycopg2>=2.9.12",
+    "social-auth-app-django>=6.0.0",
+    "unidecode>=1.4.0",
+]
