@@ -58,6 +58,7 @@ Some of the topics explored here:
 - **django-extensions**
 - **social-auth-app-django**
 - **django-turnstile**
+- **python-dotenv**
 - **uv**
 
 ## 📁 Project Structure
@@ -73,6 +74,7 @@ django-test-DEVSPACE/
 │   ├── templates/            # Project templates
 │   ├── media/                # Uploaded media
 │   ├── fixtures/             # Django fixtures
+│   ├── .env.example          # Environment variable template
 │   ├── manage.py
 │   ├── pyproject.toml
 │   └── uv.lock
@@ -96,7 +98,13 @@ Install dependencies with uv:
 uv sync
 ~~~
 
-Configure a PostgreSQL database and the required application credentials/settings.
+Configure the environment variables using the provided .env.example:
+
+~~~bash
+cp .env.example .env
+~~~
+
+Open .env and provide the required values for your local PostgreSQL database and external services.
 
 Then apply migrations:
 
@@ -124,14 +132,28 @@ http://127.0.0.1:8000/
 
 ## ⚙️ Configuration
 
+The project uses **python-dotenv** to load configuration from a local .env file. Django settings read values such as the secret key, database credentials, OAuth credentials, email settings, and Cloudflare Turnstile credentials from environment variables instead of storing them directly in settings.py.
+
+A template with the required variables is provided here:
+
+~~~text
+DevSpace/.env.example
+~~~
+
+Copy it to .env and fill in the values required for your local setup:
+
+~~~bash
+cp .env.example .env
+~~~
+
+The .env file is intended for local use and should **never be committed to Git**. Only .env.example, containing empty or non-sensitive placeholder values, belongs in the repository.
+
 The project currently integrates several external services:
 
 - PostgreSQL
 - Google OAuth2
 - SMTP email
 - Cloudflare Turnstile
-
-For a real deployment, credentials and secrets should be supplied through environment variables or another secret-management mechanism rather than committed to the repository.
 
 ## 📌 Project Notes
 
