@@ -1,9 +1,11 @@
+from uuid import uuid4
+
 from django.contrib.auth import get_user_model
 from django.db import models
-from django.utils.text import slugify
-from uuid import uuid4
-from unidecode import unidecode
 from django.urls import reverse
+from django.utils.text import slugify
+from unidecode import unidecode
+
 # Create your models here.
 
 class Post(models.Model):

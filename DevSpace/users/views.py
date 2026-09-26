@@ -1,22 +1,26 @@
-from django.http import Http404
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import (LogoutView, LoginView, PasswordChangeView, PasswordChangeDoneView,
-                                       PasswordResetView,
-                                       PasswordResetDoneView,
-                                       PasswordResetConfirmView,
-                                       PasswordResetCompleteView)
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate, get_user_model
-from django.urls import reverse_lazy
-from django.shortcuts import render, redirect
-from django.views.decorators.http import require_POST
-from django.views.generic import DetailView, FormView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import UserRegisterForm, ProfileForm, DisconnectOauth2Form
-from mail_verifications.VerificationService import VerificationService
-from mail_verifications.EmailSender import EmailSender
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import (
+    LoginView,
+    PasswordChangeDoneView,
+    PasswordChangeView,
+    PasswordResetConfirmView,
+    PasswordResetDoneView,
+    PasswordResetView,
+)
+from django.http import Http404
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.views.decorators.http import require_POST
+from django.views.generic import FormView
+from django.views.generic.edit import CreateView, UpdateView
 
+from mail_verifications.EmailSender import EmailSender
+from mail_verifications.VerificationService import VerificationService
+
+from .forms import DisconnectOauth2Form, ProfileForm, UserRegisterForm
 
 # Create your views here.
 

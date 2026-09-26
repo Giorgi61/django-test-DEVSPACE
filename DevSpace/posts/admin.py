@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from posts.models import Post
 
+from posts.models import Post
 
 # Register your models here.
 

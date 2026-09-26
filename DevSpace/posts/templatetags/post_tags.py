@@ -1,5 +1,5 @@
+
 from django import template
-from itertools import chain
 
 register = template.Library()
 

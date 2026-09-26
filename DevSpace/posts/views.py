@@ -1,15 +1,9 @@
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, DetailView, UpdateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
-from .models import Post
-from .forms import FilterForm, LoginForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView, ListView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView
 
+from .forms import FilterForm
+from .models import Post
 
 # Create your views here.
 

@@ -1,7 +1,8 @@
-from social_core.pipeline.partial import partial
-from django.shortcuts import render, redirect, reverse
-from DevSpace.settings import SOCIAL_AUTH_USER_FIELDS as USER_FIELDS
 from django.contrib.auth import get_user_model
+from django.shortcuts import render
+from social_core.pipeline.partial import partial
+
+from DevSpace.settings import SOCIAL_AUTH_USER_FIELDS as USER_FIELDS
 
 
 @partial

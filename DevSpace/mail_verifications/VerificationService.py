@@ -1,8 +1,11 @@
-from .models import MailCodeVerification
-from django.utils import timezone
-from datetime import datetime, timedelta
-from django.contrib.auth.hashers import make_password, check_password
 import secrets
+from datetime import datetime, timedelta
+
+from django.contrib.auth.hashers import check_password, make_password
+from django.utils import timezone
+
+from .models import MailCodeVerification
+
 
 class VerificationService:
     EXPIRATION_INTERVAL_SECONDS = 0
